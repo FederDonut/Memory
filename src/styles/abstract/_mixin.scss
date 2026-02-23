@@ -6,3 +6,54 @@
     flex-direction: column;
 }
 
+@mixin grow{
+    transform: scaleX(1.1);
+    transition: 0.5s;
+}
+@mixin normal{
+    transform: scaleX(1);
+    transition: 0.5s;
+}
+
+@mixin shrink{
+    transform: scaleX(0.909);
+    transition: 0.5s;
+}
+
+@mixin rotate{
+    transform: rotate(-25deg);
+    transition: 0.5s;
+}
+@mixin rotateBack{
+    transform: rotate(0deg);
+    transition: 0.5s;
+}
+
+@mixin fade-in($time:0.3s, $ease: ease-in-out){
+    animation: fadeIn $time $ease forwards;
+}
+@mixin fade-out($time:0.3s, $ease: ease-in-out){
+    animation: fadeOut $time $ease forwards;
+}
+
+@keyframes fadeIn {
+    from{
+        transform: translateX(0);
+        //transform: translateY(0);
+    }
+    to{
+        transform: translateX(10px);
+        //transform: translateY(10%);
+    }
+}
+@keyframes fadeOut {
+    from{
+        transform: translateX(10px);
+        //transform: translateY(0);
+    }
+    to{
+        transform: translateX(0);
+        //transform: translateY(10%);
+    }
+}
+

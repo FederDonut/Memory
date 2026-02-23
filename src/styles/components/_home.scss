@@ -3,6 +3,7 @@
 $redRose: 'RedRose';
 $openSans: 'OpenSans';
 
+
 body{
     margin: 0;
     height: 100vh;
@@ -40,22 +41,49 @@ body{
         height: 98px;
         width: 250px;
         background-color: #F0EA6E;
-        @include mixin.flex-center;
-        flex-direction: row;
-        gap: 20px;
+        
+        //flex-direction: row;
+        
         border: 0;
-
-        h3{
-            font-family: $redRose;
-            font-size: 40px;
+        @include mixin.normal;
+        .btn-wrapper{
+            @include mixin.flex-center;
             
+            flex-direction: row;
+            gap: 20px;
+            flex: 1;
+            height: 100%;
+            .shrink-wrapper{
+                h3{
+                    @include mixin.fade-out;
+                    font-family: $redRose;
+                    font-size: 40px;
+                }
+            }
+            .btn-img{
+                @include mixin.rotateBack;
+            }
+           
         }
+       
+        
+
+
         &:hover{
             cursor: pointer;
+            @include mixin.grow;
+            .shrink-wrapper{
+                @include mixin.shrink;
+                .btn-h3{  
+                    @include mixin.fade-in;
+                }
+            }
+            .btn-img{
+                @include mixin.rotate;
+                
+            }
+            
         }
-
-
-        
     }
 
     .img-wrapper{
