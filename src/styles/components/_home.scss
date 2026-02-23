@@ -1,0 +1,76 @@
+@use '../abstract/mixin' as mixin;
+
+$redRose: 'RedRose';
+$openSans: 'OpenSans';
+
+body{
+    margin: 0;
+    height: 100vh;
+    background-color: rgb(18%, 19%, 19%);
+
+    @include mixin.flex-center;
+
+    .introduction{
+            position: relative;
+            height: 229px;
+            min-width: 991px;
+            color: #FFFFFF;
+            margin-bottom: 40px;
+            h3{
+                font-family: $openSans;
+                font-weight: 200;
+                font-size: 48px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                margin: 0;
+            }
+            h1{
+                font-family: $redRose;
+                
+                font-size: 140px;
+                line-height: 100%;
+                letter-spacing: 0%;
+                margin: 0;
+            }
+
+    }
+
+    .start-game{
+        
+        height: 98px;
+        width: 250px;
+        background-color: #F0EA6E;
+        @include mixin.flex-center;
+        flex-direction: row;
+        gap: 20px;
+        border: 0;
+
+        h3{
+            font-family: $redRose;
+            font-size: 40px;
+            
+        }
+        &:hover{
+            cursor: pointer;
+        }
+
+
+        
+    }
+
+    .img-wrapper{
+
+        height: 301px;
+        min-width: 614px;
+        position: absolute;
+        left: -88px;
+        top: 57%;
+
+        img{
+            width: 400px;
+            height: 303px;
+        }
+    }
+
+}
+
