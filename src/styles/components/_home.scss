@@ -41,9 +41,6 @@ body{
         height: 98px;
         width: 250px;
         background-color: #F0EA6E;
-        
-        //flex-direction: row;
-        
         border: 0;
         @include mixin.normal;
         .btn-wrapper{

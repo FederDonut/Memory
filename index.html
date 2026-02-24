@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory</title>
-    <link rel="stylesheet" href="main.css">
+    <!--<link rel="stylesheet" href="main.css">-->
 </head>
 <body>
 
@@ -15,23 +15,24 @@
     
         
         
-    <button class="start-game">
+    <button class="start-game" onclick="goToSettings()">
         <section class="btn-wrapper">
-            <img class="btn-img" src="./public/img/Home/stadia_controller_small.svg" alt="btnImg">
+            <img class="btn-img" src="./img/Home/stadia_controller_small.svg" alt="btnImg">
             <section class="shrink-wrapper">
                 <h3 class="btn-h3">Play</h3>
             </section>   
-            <img  src="./public/img/Home/Arrow 1.png" alt="arrowImg">
+            <img  src="./img/Home/Arrow 1.png" alt="arrowImg">
         </section>
         
     </button>
     
     
     <section class="img-wrapper">
-        <img src="./public/img/Home/stadia_controller.svg" alt="controllerImg-background">
+        <img src="./img/Home/stadia_controller.svg" alt="controllerImg-background">
     </section>
 
 
     <script type="module" src="/src/main.ts"></script>
+    <script src="/src/scripts/router.ts"></script>
 </body>
 </html>

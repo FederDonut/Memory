@@ -39,21 +39,20 @@
 @keyframes fadeIn {
     from{
         transform: translateX(0);
-        //transform: translateY(0);
+        
     }
     to{
         transform: translateX(6px);
-        //transform: translateY(10%);
+        
     }
 }
 @keyframes fadeOut {
     from{
         transform: translateX(6px);
-        //transform: translateY(0);
+       
     }
     to{
         transform: translateX(0);
-        //transform: translateY(10%);
     }
 }
 
