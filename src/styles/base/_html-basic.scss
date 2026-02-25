@@ -12,3 +12,28 @@ ul{
     //font-family: $redRose;
     border: 0;
 }
+
+.checkmark{
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    position: relative;
+    display: inline-block;
+    
+    &::after{
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background-color: #000;
+        display: none;
+    }
+    
+    
+}
+
+
