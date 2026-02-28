@@ -2,13 +2,15 @@
 //document.getElementById('h1_test')!.innerText = "das ist der zweite Test";
 
 import { goToSettings } from './scripts/router';
+import { testSetting } from './scripts/settings';
 
 
 
 
 function init(){
     Play();
-    setTimeout(()=>{test()},5000)
+    //setTimeout(()=>{test()},5000)
+    testSetting();
 }
 
 
