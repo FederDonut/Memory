@@ -14,37 +14,68 @@
                 <nav class="left-content">
                     <ul class="settings settings--game">
                         <section class="headline"><img class="setting-img" src="/img/settings/palette.svg" alt="palette"><h4>Game themes</h4></section>
-                        <section class="input-wrapper">
-                            <label class="menu-point"><input type="checkbox" name="game" id="game1"><span id="span1" class="checkmark"></span><p>Code vibes theme</p></label>
-                            <label class="menu-point"><input type="checkbox" name="game" id="game2"><span class="checkmark"></span><p>Gaming theme</p></label>
+                        <section class="input-wrapper ">
+
+                            <label class="menu-point --highlight">
+                                <input type="radio" name="game" id="code" class="highlight">
+                                <span class="checkmark checkmark__theme"></span><p>Code vibes theme</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            </label>
+                            
+                            <label class="menu-point --highlight">
+                                <input type="radio" name="game" id="game" >
+                                <span class="checkmark checkmark__theme"></span><p>Gaming theme</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            
+                            </label>
                         </section>
                     </ul>
                     <ul class="settings settings--player">
                         <section class="headline"><img class="setting-img" src="/img/settings/chess_pawn.svg" alt="chess"><h4>Choose player</h4></section>
                         <section class="input-wrapper">
-                            <label class="menu-point"><input type="checkbox" name="player" id="payer1"><span class="checkmark"></span><p>Blue</p></label>
-                            <label class="menu-point"><input type="checkbox" name="player" id="player2"><span class="checkmark"></span><p>Orange</p></label>
+                            <label class="menu-point">
+                                <input type="radio" name="player" id="blue">
+                                <span class="checkmark"></span><p>Blue</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            </label>
+                            <label class="menu-point">
+                                <input type="radio" name="player" id="orange">
+                                <span class="checkmark"></span><p>Orange</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            </label>
                         </section>
                     </ul>
                     <ul class="settings settings--board">
                          <section class="headline"><img class="setting-img" src="/img/settings/style.svg" alt="style"><h4>Board size</h4></section>
                         <section class="input-wrapper">
-                            <label class="menu-point"><input type="checkbox" name="board" id="card16"><span class="checkmark"></span><p>16 Cards</p></label>
-                            <label class="menu-point"><input type="checkbox" name="board" id="card24"><span class="checkmark"></span><p>24 Cards</p></label>
-                            <label class="menu-point"><input type="checkbox" name="board" id="card36"><span class="checkmark"></span><p>36 Cards</p></label>
+                            <label class="menu-point">
+                                <input type="radio" name="board" id="card16">
+                                <span class="checkmark"></span><p>16 Cards</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            </label>
+                            <label class="menu-point">
+                                <input type="radio" name="board" id="card24">
+                                <span class="checkmark"></span><p>24 Cards</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            </label>
+                            <label class="menu-point">
+                                <input type="radio" name="board" id="card36">
+                                <span class="checkmark"></span><p>36 Cards</p>
+                                <img class="y-arrow" src="/img/settings/y-arrow.svg" alt="arrow">
+                            </label>
                         </section>
                     </ul>
                 </nav>
                 <section class="right-content">
                     <section class="theme-wrapper">
-                        <img class="theme-img" src="/img/settings/Theme Visual-code.svg" alt="ThemeImg">
+                        <img id="theme-img" class="theme-img" src="/img/settings/Theme Visual-code.svg" alt="ThemeImg">
                     </section>
                     <section class="summary-wrapper">
-                        <p>Game theme</p>
+                        <p id="theme-name">Game theme</p>
                         <section class="separator"></section>
-                        <p>Player</p>
+                        <p id="player-color">Player</p>
                         <section class="separator"></section>
-                        <p>Board size</p>
+                        <p id="board-size">Board size</p>
                         <button class="settingButton button--primary">
                             <img src="/img/settings/smart_display.svg" alt="play"><p>Start</p>
                         </button>

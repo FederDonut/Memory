@@ -29,6 +29,7 @@ main{
 
             display: flex;
             justify-content: space-between;
+           
 
             .left-content{
 
@@ -54,7 +55,8 @@ main{
                 }
                 .settings--game{
                     height: 180px;
-                    width: 282px;
+                    width: auto;
+                    //width: 282px;
                 }
                 .settings--player{
                     height: 162px;
@@ -69,22 +71,36 @@ main{
                     flex-direction: column;
                     gap: 10px;
                     
+
                     .menu-point{
-                        //@include mixin.flex-center;
-                        //flex-direction: row;
                         height: 24px;
                         display: flex;
                         align-items: center;
                         gap: 10px;
                         padding-left: 2rem;
                         
+                        &.--highlight{
+                            
+                            &:hover{
+                                font-weight: 700;                              
+                                .checkmark::after{
+                                    display: block;
+                                }
+                                .y-arrow{
+                                    display: block;
+                                }
+
+                            }
+                        }
+
                         input{
-                            margin: 0;
-                            height: 20px;
-                            width: 20px;
                             display: none; 
                             
-                            &:checked ~ .checkmark::after{
+                            &:checked ~ .checkmark::after {
+                                display: block; 
+                                  
+                            }
+                            &:checked ~.y-arrow{
                                 display: block;
                             }
                             
@@ -103,15 +119,13 @@ main{
                         }
                         &:hover{
                             cursor: pointer;
-                            p{
-                                font-weight: 700;
-                            }
-                            .checkmark{
-                                border: 2px solid #000;
-                                height: 14px;
-                                width: 14px;
-                                
-                            }
+                        }
+                        .y-arrow{
+                            height: 40px;
+                            width: 55px;
+                            display: none;
+                            
+                            
                         }
 
                     }

@@ -1,36 +1,50 @@
+const settingOptions:string[] = [];
 
-let gameClick:boolean = false;
-let gameTheme:boolean = false;
+const htmlIds = {
+    "theme": {
+        "code": "/img/settings/Theme Visual-code.svg",
+        "gaming": "/img/settings/Theme Visual-game.svg"
+    },
+        
+};
+
+
+export function testSetting(){
+    let theme1 = document.getElementById('code');
+    let theme2 = document.getElementById('game');
+    theme1?.addEventListener('change', checkInputStatus);
+    theme2?.addEventListener('change', checkInputStatus);
+    
+};
 
 
 function checkInputStatus(event:any){
     const checkbox = event.target;
-    if(checkbox.checked && !gameClick){
-        gameClick = true;
-        gameTheme = true;
-        console.log(`checkbox ${checkbox.id} ist aktiv`)
-        //if(gameClick && !){
-        //    console.log(`checkbox ${checkbox.id} sollte wieder deaktiviert werden`)
-        //    //testSetting();
-        //    gameClick = false;
-        //}
-        
+    if(checkbox.checked ){
+        renderThemeImg(checkbox)
     }else{
-        gameClick = false;
-        console.log('keine Checkbox aktiv' ,gameClick)
+        
     }
 }
 
-//function removeOldDecision(event:any){
+function renderThemeImg(checkbox:HTMLInputElement){
+    let themeImg = document.getElementById('theme-img') as HTMLImageElement;
+    if(checkbox.id === 'code'){
+        themeImg.src = htmlIds.theme.code
+    }else{
+        themeImg.src = htmlIds.theme.gaming
+    }
+}
+
+function renderSettingsSummary(){
+
+}
+
+//function storeUserDecissons(){
+//    let themeImg = document.getElementById('theme-img');
+//    let themeName = document.getElementById('theme-name');
+//    let playerName = document.getElementById('player-color');
+//    let boardSize = document.getElementById('board-size');
 //    
 //}
 
-
-
-export function testSetting(){
-    let theme1 = document.getElementById('game1');
-    let theme2 = document.getElementById('game2');
-    theme1?.addEventListener('change', checkInputStatus);
-    //theme2?.addEventListener('change', checkInputStatus);
-    
-};
