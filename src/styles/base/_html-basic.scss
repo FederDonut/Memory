@@ -14,8 +14,8 @@ ul{
 }
 
 .checkmark{
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     border-radius: 50%;
     border: 3px solid #000;
     position: relative;
@@ -24,14 +24,16 @@ ul{
     &::after{
         content: '';
         position: absolute;
-        top: 30%;
-        left: 30%;
+        top: 33%;
+        left: 33%;
         height: 5px;
         width: 5px;
         border-radius: 50%;
+        //border: 1px solid #000;
         background-color: #000;
         display: none;
     }
+
     
     
 }

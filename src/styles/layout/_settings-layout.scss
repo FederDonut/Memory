@@ -82,12 +82,17 @@ main{
                         &.--highlight{
                             
                             &:hover{
-                                font-weight: 700;                              
+                                font-weight: 700;
                                 .checkmark::after{
                                     display: block;
                                 }
                                 .y-arrow{
                                     display: block;
+                                }
+                                .checkmark{
+                                    border: 2px solid #000;
+                                    height: 16px;
+                                    width: 16px;
                                 }
 
                             }
@@ -98,7 +103,11 @@ main{
                             
                             &:checked ~ .checkmark::after {
                                 display: block; 
-                                  
+                            }
+                            &:checked ~ .checkmark{
+                                height: 16px;
+                                width: 16px;
+                                border: 2px solid black;
                             }
                             &:checked ~.y-arrow{
                                 display: block;
@@ -119,13 +128,13 @@ main{
                         }
                         &:hover{
                             cursor: pointer;
+                            
                         }
                         .y-arrow{
                             height: 40px;
                             width: 55px;
                             display: none;
-                            
-                            
+
                         }
 
                     }
