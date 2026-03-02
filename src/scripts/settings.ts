@@ -1,3 +1,5 @@
+import { settingsBase } from "./db";
+
 const settingOptions:string[] = [];
 
 const htmlIds = {
@@ -66,19 +68,21 @@ function storeUserDecissons(){
     
     if(activPlayer && activBoard && activTheme){
         console.log(storeInfos)
+        settingsBase.push(storeInfos);
+        renderDecisionSummary(storeInfos)
+        console.log(settingsBase);
     }
-    renderDecissionSummary(storeInfos)
+    
     //return(storeInfos)
     
 
 }
 
-function renderDecissionSummary(storeInfos:Object | any){
+function renderDecisionSummary(storeInfos:Object |any){
     let themeDisplay = document.getElementById('theme-name') as HTMLElement;
     let player = document.getElementById('player-color') as HTMLElement;
     let board = document.getElementById('board-size') as HTMLElement;
 
-    //themeDisplay?.innerText = storeInfos.theme
     themeDisplay.innerText = storeInfos.theme;
     player.innerText = storeInfos.player;
     board.innerText = storeInfos.board;

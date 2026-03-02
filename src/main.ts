@@ -15,7 +15,7 @@ function init(){
 
 
 function Play(){
-    const playBtn = document.getElementById('playBtn');
+    const playBtn = document.getElementById('playBtn') as HTMLButtonElement;
 
     if(playBtn){
         playBtn.addEventListener('click',()=>{
