@@ -1,7 +1,8 @@
 @use '../abstract/mixin' as mixin;
+@use '../abstract/variables' as vars;
 
-$redRose: 'RedRose';
-$openSans: 'OpenSans';
+//$redRose: 'RedRose';
+//$openSans: 'OpenSans';
 
 
 body{
@@ -18,7 +19,7 @@ body{
             color: #FFFFFF;
             margin-bottom: 40px;
             h3{
-                font-family: $openSans;
+                font-family: vars.$redRose;
                 font-weight: 200;
                 font-size: 48px;
                 line-height: 100%;
@@ -26,7 +27,7 @@ body{
                 margin: 0;
             }
             h1{
-                font-family: $redRose;
+                font-family: vars.$redRose;
                 
                 font-size: 140px;
                 line-height: 100%;
@@ -53,7 +54,7 @@ body{
             .shrink-wrapper{
                 h3{
                     @include mixin.fade-out;
-                    font-family: $redRose;
+                    font-family: vars.$redRose;
                     font-size: 40px;
                 }
             }

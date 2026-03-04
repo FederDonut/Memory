@@ -5,7 +5,7 @@ import { settingsBase } from "./db";
 //let unlock:boolean = false;
 
 
-
+//
 const htmlIds = {
     "theme": {
         "code": "/img/settings/Theme Visual-code.svg",
@@ -58,7 +58,6 @@ function storeUserDecissons() {
     let activPlayer = document.querySelector('input[name="player"]:checked') as HTMLInputElement;
     let activBoard = document.querySelector('input[name="board"]:checked') as HTMLInputElement;
     
-    
     const selection: SelectionInfos = {
         theme : activTheme?.parentElement?.querySelector('p')?.innerText,
         player : activPlayer?.parentElement?.querySelector('p')?.innerText,
@@ -81,14 +80,13 @@ function inputValidation(selection:SelectionInfos){
 }
 
 export function unlockStartGameBtn(unlock:boolean){
-   
     if(settingsBase.length !== 0){
         unlock = true
-        console.log('alles augewält start darf betätigt werden ',unlock)
+        //console.log('alles augewält start darf betätigt werden ',unlock)
         return unlock 
    }else{
         unlock = false
-        console.log(unlock)
+        //console.log(unlock)
         return unlock 
    }
 }

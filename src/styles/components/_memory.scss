@@ -1,0 +1,96 @@
+
+@use '../abstract/mixin' as mixin;
+@use '../abstract/variables' as vars;
+
+//$redRose: 'RedRose';
+//$openSans: 'OpenSans';
+
+
+.game-overview{
+    height: 684px;
+    min-width: 1217px;
+    
+
+    .info-wrapper{
+        height: 62px;
+        width: 100%;
+        //border: 1px solid red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .left-wrapper{
+            height: 100%;
+            width: 687px;
+            display: flex;
+            justify-content: space-between;
+            
+            .score{
+                height: 100%;
+                width: 292px;
+                background-color: #415652;
+                @include mixin.flex-center;
+                flex-direction: row;
+                gap: 20px;
+
+                .player{
+                    height: 28px;
+                    width: auto;
+                    //border: 1px solid blue;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    img{
+                        height: 20px;
+                        width: 24px;
+                    }
+                    h5{
+                        font-size: 24px;
+                        font-family: vars.$redRose;
+                    }
+                   
+                }
+
+            }
+            .current-player-wrapper{
+               
+                    .current-player{
+                         height: 32px;
+                        
+                        h3{
+                            font-family: vars.$redRose;
+                            font-size: 26px;
+                            font-weight: 400;
+                            margin-bottom: 0;
+                            color: #FFFFFF;
+                        }
+                }
+                
+
+               
+
+            }
+        }
+        .exitBtn{
+            width: 207px;
+            height: 100%;
+            background-color: #415652;
+            border: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            img{
+                height: 25.75px;
+                width: 25.75px;
+            }
+            h5{
+                font-family: vars.$redRose;
+                font-size: 24px;
+                font-weight: 700;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
