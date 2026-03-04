@@ -1,6 +1,10 @@
 import { settingsBase } from "./db";
 
-const settingOptions:string[] = [];
+//const settingOptions:string[] = [];
+
+//let unlock:boolean = false;
+
+
 
 const htmlIds = {
     "theme": {
@@ -11,22 +15,11 @@ const htmlIds = {
 };
 
 
-export function testSetting(){
-    //let theme1 = document.getElementById('code');
-    //let theme2 = document.getElementById('game');
-    //let blue = document.getElementById('blue');
-    //let orange = document.getElementById('orange');
-    //let cards = document.getElementsByClassName('checkmark');
-   
-    //theme1?.addEventListener('change', checkInputStatus);
-    //theme2?.addEventListener('change', checkInputStatus);
-    
+export function observeSetting(){ 
     const allInputs = document.querySelectorAll('.menu-point input[type="radio"]');
-
     allInputs.forEach(input =>{
         input.addEventListener('change',(event)=>{
-            checkInputStatus(event)
-            
+            checkInputStatus(event)   
         })
     })
 
@@ -53,39 +46,66 @@ function renderThemeImg(checkbox:HTMLInputElement){
     }
 }
 
+interface SelectionInfos{
+    theme:string |undefined,
+    player:string | undefined,
+    board:string | undefined,
+    
+}
 
-
-function storeUserDecissons(){
+function storeUserDecissons() {
     let activTheme = document.querySelector('input[name="game"]:checked') as HTMLInputElement;
     let activPlayer = document.querySelector('input[name="player"]:checked') as HTMLInputElement;
     let activBoard = document.querySelector('input[name="board"]:checked') as HTMLInputElement;
     
-    const storeInfos:Object = {
-        'theme': activTheme?.parentElement?.querySelector('p')?.innerText,
-        'player': activPlayer?.parentElement?.querySelector('p')?.innerText,
-        'board': activBoard?.parentElement?.querySelector('p')?.innerText
+    
+    const selection: SelectionInfos = {
+        theme : activTheme?.parentElement?.querySelector('p')?.innerText,
+        player : activPlayer?.parentElement?.querySelector('p')?.innerText,
+        board : activBoard?.parentElement?.querySelector('p')?.innerText
     }
-    
-    if(activPlayer && activBoard && activTheme){
-        console.log(storeInfos)
-        settingsBase.push(storeInfos);
-        renderDecisionSummary(storeInfos)
-        console.log(settingsBase);
-    }
-    
-    //return(storeInfos)
-    
 
+    //console.log(selection)
+    renderDecisionSummary(selection);
+    inputValidation(selection);
+    
 }
 
-function renderDecisionSummary(storeInfos:Object |any){
+function inputValidation(selection:SelectionInfos){
+    if(selection.theme !== undefined && selection.player != undefined && selection.board !== undefined){
+        settingsBase.push(selection);
+        console.log(settingsBase);
+    }else{
+        console.log('Es fehlen noch angaben');
+    }
+}
+
+export function unlockStartGameBtn(unlock:boolean){
+   
+    if(settingsBase.length !== 0){
+        unlock = true
+        console.log('alles augewält start darf betätigt werden ',unlock)
+        return unlock 
+   }else{
+        unlock = false
+        console.log(unlock)
+        return unlock 
+   }
+}
+
+
+function renderDecisionSummary(selection:SelectionInfos){
     let themeDisplay = document.getElementById('theme-name') as HTMLElement;
     let player = document.getElementById('player-color') as HTMLElement;
     let board = document.getElementById('board-size') as HTMLElement;
 
-    themeDisplay.innerText = storeInfos.theme;
-    player.innerText = storeInfos.player;
-    board.innerText = storeInfos.board;
+   // Das selection.theme ?? '' sorgt dafür, dass bei undefined ein leerer String genutzt wird
+    themeDisplay.innerText = selection.theme ?? '';    
+    player.innerText = selection.player ?? '';
+    board.innerText = selection.board ?? '';
 
 }
+
+
+
 

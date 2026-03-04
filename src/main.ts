@@ -1,33 +1,35 @@
 // Vite test
 //document.getElementById('h1_test')!.innerText = "das ist der zweite Test";
 
-import { goToSettings } from './scripts/router';
-import { testSetting } from './scripts/settings';
+import { goToSettings, goToTheGame } from './scripts/router';
+import { observeSetting, unlockStartGameBtn } from './scripts/settings';
+import { settingsBase } from './scripts/db';
 
 
+let unlock:boolean = false;
 
 
 function init(){
-    Play();
+    buttonController();
     //setTimeout(()=>{test()},5000)
-    testSetting();
+    observeSetting();
 }
 
 
-function Play(){
+function buttonController(){
     const playBtn = document.getElementById('playBtn') as HTMLButtonElement;
-
+    const stratGame = document.getElementById('startBtn')as HTMLButtonElement;
     if(playBtn){
         playBtn.addEventListener('click',()=>{
             goToSettings();
         });
     }
+    if(stratGame){
+        stratGame.addEventListener('click',()=>{
+            goToTheGame(unlockStartGameBtn(unlock));
+        })
+    }
 }
-
-function test(){
-    console.log('das ist ein test um das verständnis über dies architektur zu vertiefen')
-}
-
 
 
 //SCSS
