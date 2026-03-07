@@ -7,7 +7,7 @@
 
 
 .game-overview{
-    height: 684px;
+    height: 866px;
     min-width: 1217px;
     
 
@@ -53,27 +53,27 @@
 
             }
             .current-player-wrapper{
-                    height: 100%;
-                    width: auto;
+                height: 100%;
+                width: auto;
+                display: flex;
+                align-items: flex-end;
+
+
+                .current-player{
+                    height: 32px;
                     display: flex;
-                    align-items: flex-end;
-
-
-                    .current-player{
-                         height: 32px;
-                         display: flex;
-                         flex-direction: row;
-                         align-items: center;
-                         justify-content: center;
-                         gap: 8px;
-                        
-                        h3{
-                            font-family: vars.$redRose;
-                            font-size: 26px;
-                            font-weight: 400;
-                            margin: 0;
-                            color: #FFFFFF;
-                        }
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    
+                    h3{
+                        font-family: vars.$redRose;
+                        font-size: 26px;
+                        font-weight: 400;
+                        margin: 0;
+                        color: #FFFFFF;
+                    }
                 }
                 
 
@@ -102,5 +102,18 @@
                 color: #FFFFFF;
             }
         }
+    }
+    .card-table{
+        height: calc(vars.$small - 62px);
+        width: 100%;
+        border: 1px solid white;
+        @include mixin.cards-position;
+
+        .card-wrapper{
+            height: 528px;
+            width: 529px;
+            border: 1px solid red;
+        }
+
     }
 }

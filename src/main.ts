@@ -3,7 +3,7 @@
 
 import { goToSettings, goToTheGame } from './scripts/router';
 import { observeSetting, unlockStartGameBtn } from './scripts/settings';
-import { settingsBase } from './scripts/db';
+import { getSettingsFromLocaStorage } from './scripts/memory';
 
 
 let unlock:boolean = false;
@@ -13,6 +13,7 @@ function init(){
     buttonController();
     //setTimeout(()=>{test()},5000)
     observeSetting();
+    getSettingsFromLocaStorage();
 }
 
 

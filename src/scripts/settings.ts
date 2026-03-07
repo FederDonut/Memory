@@ -63,16 +63,13 @@ function storeUserDecissons() {
         player : activPlayer?.parentElement?.querySelector('p')?.innerText,
         board : activBoard?.parentElement?.querySelector('p')?.innerText
     }
-
-    //console.log(selection)
-    renderDecisionSummary(selection);
     inputValidation(selection);
-    
 }
 
 function inputValidation(selection:SelectionInfos){
     if(selection.theme !== undefined && selection.player != undefined && selection.board !== undefined){
         settingsBase.push(selection);
+        localStorage.setItem('settings', JSON.stringify(selection))
         console.log(settingsBase);
     }else{
         console.log('Es fehlen noch angaben');
@@ -82,11 +79,9 @@ function inputValidation(selection:SelectionInfos){
 export function unlockStartGameBtn(unlock:boolean){
     if(settingsBase.length !== 0){
         unlock = true
-        //console.log('alles augewält start darf betätigt werden ',unlock)
         return unlock 
    }else{
         unlock = false
-        //console.log(unlock)
         return unlock 
    }
 }
