@@ -104,16 +104,12 @@
         }
     }
     .card-table{
-        height: calc(vars.$small - 62px);
+        //height: calc(vars.$small - 62px);
         width: 100%;
         border: 1px solid white;
         @include mixin.cards-position;
 
-        .card-wrapper{
-            height: 528px;
-            width: 529px;
-            border: 1px solid red;
-        }
+        
 
     }
 }

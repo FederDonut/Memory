@@ -1,8 +1,21 @@
+@use '../abstract/variables' as vars;
+
 
 body{
     background-color: rgb(19%, 19%, 19%);
 }
+//Card-table
+.--size-16{
+ height: vars.$small;
+}
+.--size-24{
+    height: vars.$medium;
+}
+.--size-36{
+    height: vars.$large;
+}
 
+// Card Wrapper
 .Count-16{
     height: 528px;
     width: 529px;
@@ -13,7 +26,7 @@ body{
     width: 750px;
     border: 1px solid blue
 }
-.Count-32{
+.Count-36{
     height: 750px;
     width: 750.35px;
     border: 1px solid white;
