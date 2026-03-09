@@ -34,13 +34,13 @@ function toggleTableSize(settings:SelectionInfos){
             cardStack?.classList.add('Count-16');
             cardtable?.classList.add('--size-16');
             //cardCounter = 16;
-            setTimeout(()=>{renderCards(36)},500);
+            setTimeout(()=>{renderCards(16)},500);
         }
         if(tableSize?.includes('24')){
             cardStack?.classList.add('Count-24');
             cardtable?.classList.add('--size-24')
             //cardCounter = 24;
-            setTimeout(()=>{renderCards(36)},500);
+            setTimeout(()=>{renderCards(24)},500);
         }
         if(tableSize?.includes('36')){
             cardStack?.classList.add('Count-36');
