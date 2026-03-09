@@ -6,10 +6,17 @@
     flex-direction: column;
 }
 
-@mixin cards-position{
+@mixin table-position{
     display: flex;
     justify-content: center;
     align-items: end;
+}
+@mixin cards-position{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    gap: 6px;
 }
 
 //Effects

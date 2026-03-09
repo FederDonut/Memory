@@ -107,9 +107,21 @@
         //height: calc(vars.$small - 62px);
         width: 100%;
         border: 1px solid white;
-        @include mixin.cards-position;
+        @include mixin.table-position;
+
 
         
 
+    }
+
+}
+
+.card{
+    height: 120px;
+    width: 120px;
+    background-image: url(/img/cards/code-vibes-theme/code-background.svg);
+    &:hover{
+        cursor: pointer;
+        border-color: red;
     }
 }

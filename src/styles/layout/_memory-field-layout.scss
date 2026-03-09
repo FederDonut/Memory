@@ -1,4 +1,5 @@
 @use '../abstract/variables' as vars;
+@use '../abstract/mixin' as mixin;
 
 
 body{
@@ -20,14 +21,17 @@ body{
     height: 528px;
     width: 529px;
     border: 1px solid red;
+    @include mixin.cards-position;
 }
 .Count-24{
     height: 498px;
     width: 750px;
-    border: 1px solid blue
+    border: 1px solid blue;
+    @include mixin.cards-position;
 }
 .Count-36{
     height: 750px;
     width: 750.35px;
     border: 1px solid white;
+    @include mixin.cards-position;
 }
