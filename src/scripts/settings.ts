@@ -46,7 +46,8 @@ function renderThemeImg(checkbox:HTMLInputElement){
     }
 }
 
-interface SelectionInfos{
+// Interface evtl outsourcen 
+export interface SelectionInfos{
     theme:string |undefined,
     player:string | undefined,
     board:string | undefined,

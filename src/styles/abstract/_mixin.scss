@@ -14,9 +14,9 @@
 @mixin cards-position{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    gap: 6px;
+    justify-content: space-around;
+    align-content: space-around;
+    gap: 8px;
 }
 
 //Effects

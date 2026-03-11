@@ -4,6 +4,7 @@
 import { goToSettings, goToTheGame } from './scripts/router';
 import { observeSetting, unlockStartGameBtn } from './scripts/settings';
 import { getSettingsFromLocaStorage } from './scripts/memory';
+//import { renderCardsToHTML } from './scripts/templates';
 
 
 let unlock:boolean = false;

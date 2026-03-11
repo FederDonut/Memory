@@ -20,18 +20,42 @@ body{
 .Count-16{
     height: 528px;
     width: 529px;
-    border: 1px solid red;
-    @include mixin.cards-position;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    //border: 1px solid red;
+   //@include mixin.cards-position;
+
+    .card-stack{
+        height: calc(528px/2);
+        width: 100%;
+        //border: 1px solid yellow;
+        @include mixin.cards-position;
+    }
 }
 .Count-24{
     height: 498px;
     width: 750px;
     border: 1px solid blue;
     @include mixin.cards-position;
+
+    .card-stack{
+        height: calc(489px/2);
+        width: 100%;
+        border: 1px solid yellow;
+
+    }
 }
 .Count-36{
     height: 750px;
     width: 750.35px;
     border: 1px solid white;
     @include mixin.cards-position;
+
+    .card-stack{
+        height: calc(750px/2);
+        width: 100%;
+        border: 1px solid yellow;
+
+    }
 }
