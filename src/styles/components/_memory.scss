@@ -110,21 +110,7 @@
 }
 
 // wird noch outgesourced 
-.card{
-    height: 120px;
-    width: 120px;
-    
-    &:hover{
-        cursor: pointer;
-        
-    }
-}
 
-.card--background{
-    background-image: url(/img/cards/code-vibes-theme/code-background.svg);
-}
 
-.card--front{
-    background-image: url(/img/cards/code-vibes-theme/${vars.array});
-}
+
 

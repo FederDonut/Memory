@@ -1,27 +1,17 @@
 
 
 
-export function renderCardsBackgroundToHTML(i:number, codeViebeImgs:string[]){
+export function renderCardsImgsToHTML(i:number, codeViebeImgs:string[]){
 
     return `
+        <section id="single-card${i}" class="single-card">
+            <img id="${i}" class="card-front" src="/img/cards/code-vibes-theme/${codeViebeImgs[i]}" alt="memory-card">
+            <img class="card-back" src="/img/cards/code-vibes-theme/code-background.svg" alt="background-img">
+        </section>
         
-        <img id="${i}" class="card${i}" src="/img/cards/code-vibes-theme/${codeViebeImgs[i]}" alt="memory-card">
 
     `
 }
 
-export function renderCardsBackgroundToHTMLMirror(i:number, codeViebeImgs:string[]){
 
-    return `
-        
-        <img id="${i}" class="card${i}" src="/img/cards/code-vibes-theme/${codeViebeImgs[i]}" alt="memory-card">
 
-    `
-}
-
-//export function renderCardsFrontImgToHTML(i:number){
-//    return`
-//        <section id="card${i}" class="card"></section>
-            
-//    `
-//}

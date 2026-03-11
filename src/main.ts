@@ -4,6 +4,7 @@
 import { goToSettings, goToTheGame } from './scripts/router';
 import { observeSetting, unlockStartGameBtn } from './scripts/settings';
 import { getSettingsFromLocaStorage } from './scripts/memory';
+import { checkGameStatus } from './scripts/memory';
 //import { renderCardsToHTML } from './scripts/templates';
 
 
@@ -15,6 +16,8 @@ function init(){
     //setTimeout(()=>{test()},5000)
     observeSetting();
     getSettingsFromLocaStorage();
+    //setInterval(()=>{checkGameStatus()},1000);
+    checkGameStatus();
 }
 
 

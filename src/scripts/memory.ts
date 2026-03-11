@@ -1,12 +1,20 @@
 import { codeViebeImgs , gameThemeImgs } from "./db";
 import { SelectionInfos } from "./settings";
-import { renderCardsBackgroundToHTML } from "./templates";
+import { renderCardsImgsToHTML } from "./templates";
 
 
 let topStack:string = 'card-stack';
 let bottomStack:string = 'card-stack-mirror';
+let gameHasBegun:boolean = false;
 
 
+export function checkGameStatus(){
+    if(gameHasBegun){
+        //renderCardsBackground();
+        console.log('test');
+    }
+
+}
 
 export function getSettingsFromLocaStorage(){
     
@@ -87,46 +95,37 @@ function randomPositioning(index:number){
         let m = Math.floor(Math.random()*(i+1));
         [mirrorStack[m],mirrorStack[i]] = [mirrorStack[i], mirrorStack[m]];
     };
-    //console.log(cardStack);
-    //console.log(mirrorStack);
-    renderCardsBackground(cardStack, topStack)
-    renderCardsBackground(mirrorStack, bottomStack)
+    
+    renderCardsImg(cardStack, topStack);
+    renderCardsImg(mirrorStack, bottomStack);
+    
 }
 
 // Funktion zum laden und rendern der Bilder 
-function renderCardsBackground(cardCounter:number[], HTML_Id: string ){
+function renderCardsImg(cardCounter:number[], HTML_Id: string ){
     let cardStack = document.getElementById(HTML_Id) as HTMLElement;
-    let array:string[] = codeViebeImgs // test
-    //console.log(cardCounter)
+    let array:string[] = codeViebeImgs;
     if(cardStack){
         cardStack.innerHTML = "";
         for(let i =0; i< cardCounter.length; i++){
-            //console.log(cardCounter[i]);
             let cardIndex:number = cardCounter[i]
-            cardStack.innerHTML += renderCardsBackgroundToHTML(cardIndex, array);
+            cardStack.innerHTML += renderCardsImgsToHTML(cardIndex, array);
         }
-    }   
+    }
+    return gameHasBegun = true;  
 }
 
 
 
-
-
-//function renderCardsImg(cardCounter:string){
-//    let memoryTable = document.getElementById('card-wrapper') as HTMLElement;
-//    if(memoryTable){
-//        memoryTable.innerHTML = "";
-//        for(let i = 0; i < codeViebeImgs.length; i++){
-//            memoryTable.innerHTML += renderCardsToHTML(i);
-//        }
-//
-//    }
-//}
-
-function toggleCards(id:number){
-    let card = document.getElementById('card') as HTMLElement;
-    if(card){
-
+function toggleCardsImg(){
+    let cards = document.querySelectorAll('[class^="card"]') ;
+    console.log(gameHasBegun);
+    if(gameHasBegun){
+        cards.forEach((card) => {
+            console.log(card);
+        })
     }
+    
+    
 
 }

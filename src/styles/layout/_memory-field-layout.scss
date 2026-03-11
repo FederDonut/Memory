@@ -43,19 +43,46 @@ body{
         height: calc(489px/2);
         width: 100%;
         border: 1px solid yellow;
+        @include mixin.cards-position;
 
     }
 }
 .Count-36{
     height: 750px;
     width: 750.35px;
-    border: 1px solid white;
-    @include mixin.cards-position;
+    //border: 1px solid white;
+    //@include mixin.cards-position;
 
     .card-stack{
         height: calc(750px/2);
         width: 100%;
-        border: 1px solid yellow;
+        //border: 1px solid yellow;
+        @include mixin.cards-position;
+        
+        .single-card{
+            position: relative;
+            height: 120px;
+            width: 120px;
+
+
+
+            // Hier muss agesetzt werden
+            .card-front .card-back{
+                position: absolute;
+                top: 0;
+                left: 0;
+                height:100%;
+                width: 100%;
+                //backface-visibility: hidden;
+
+                &:hover{
+                    cursor: pointer;
+
+                }
+            }
+        }
+
 
     }
+    
 }
