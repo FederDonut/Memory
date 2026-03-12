@@ -22,6 +22,6 @@ export const codeViebeImgs:string[] = [
     'Vue.svg'
 ];
 
-export const gameThemeImgs:string[] = [
+export const storeBtnIds:number[][] = [
 
 ]

@@ -1,4 +1,4 @@
-import { codeViebeImgs , gameThemeImgs } from "./db";
+import { codeViebeImgs , storeBtnIds } from "./db";
 import { SelectionInfos } from "./settings";
 import { renderCardsImgsToHTML } from "./templates";
 
@@ -11,7 +11,8 @@ let gameHasBegun:boolean = false;
 export function checkGameStatus(){
     if(gameHasBegun){
         //renderCardsBackground();
-        console.log('test');
+        //console.log('test');
+        //flipCard();
     }
 
 }
@@ -98,8 +99,10 @@ function randomPositioning(index:number){
     
     renderCardsImg(cardStack, topStack);
     renderCardsImg(mirrorStack, bottomStack);
-    
+    storeBtnIds.push(cardStack, mirrorStack); // evtl. nicht notwendig
 }
+
+
 
 // Funktion zum laden und rendern der Bilder 
 function renderCardsImg(cardCounter:number[], HTML_Id: string ){
@@ -116,16 +119,56 @@ function renderCardsImg(cardCounter:number[], HTML_Id: string ){
 }
 
 
-
-function toggleCardsImg(){
-    let cards = document.querySelectorAll('[class^="card"]') ;
-    console.log(gameHasBegun);
-    if(gameHasBegun){
-        cards.forEach((card) => {
-            console.log(card);
-        })
+export function flipCard(){
+    const cardWrapper = document.getElementById('card-stack') as HTMLButtonElement;
+    const cardWrapperMirror = document.getElementById('card-stack-mirror') as HTMLButtonElement;
+    const handleEvent = (event:MouseEvent)=>{
+        const target = (event.target as HTMLButtonElement).closest('.card') as HTMLElement;
+        if(target){
+            toggleCardImg(target)
+        }
     }
+    cardWrapper?.addEventListener('click', handleEvent);
+    cardWrapperMirror?.addEventListener('click',handleEvent);
     
-    
+}
 
+
+let card1: HTMLElement | null = null;
+let card2: HTMLElement | null = null;
+let lockBoard:boolean = false;
+function toggleCardImg(cardElement: HTMLElement){
+    let moveCounter: number = 2;
+    if(cardElement===card1 || !gameHasBegun)return;
+        
+        cardElement.classList.add('is-flipped');
+        if(!card1){
+            card1 = cardElement;
+            console.log('card1: ',card1);
+            return
+        }else{
+            card2 =cardElement
+            console.log('card2: ',card2)
+            matchChecking();
+            //return
+        }
+        //
+}
+
+function matchChecking(){
+    const isMatch = card1?.getAttribute('data-index')===card2?.getAttribute('data-index');
+
+    if(isMatch){
+        console.log('match zwei identische Karten')
+        card1 = null;
+        card2 = null;
+    }else{
+        console.log('kein Match Karten wieder Umdrehen');
+        setTimeout(()=>{
+            card1?.classList.remove('is-flipped')
+            card1 = null;
+            card2?.classList.remove('is-flipped');
+            card2 = null;
+        },1000)
+    }
 }

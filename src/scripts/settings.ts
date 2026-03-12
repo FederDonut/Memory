@@ -88,7 +88,7 @@ export function unlockStartGameBtn(unlock:boolean){
 }
 
 
-function renderDecisionSummary(selection:SelectionInfos){
+export function renderDecisionSummary(selection:SelectionInfos){
     let themeDisplay = document.getElementById('theme-name') as HTMLElement;
     let player = document.getElementById('player-color') as HTMLElement;
     let board = document.getElementById('board-size') as HTMLElement;

@@ -59,30 +59,40 @@ body{
         //border: 1px solid yellow;
         @include mixin.cards-position;
         
-        .single-card{
-            position: relative;
-            height: 120px;
-            width: 120px;
-
-
-
-            // Hier muss agesetzt werden
-            .card-front .card-back{
-                position: absolute;
-                top: 0;
-                left: 0;
-                height:100%;
-                width: 100%;
-                //backface-visibility: hidden;
-
-                &:hover{
-                    cursor: pointer;
-
-                }
-            }
-        }
+        
 
 
     }
     
+}
+
+// evtl. outsourcen
+.card{
+    position: relative;
+    height: 120px;
+    width: 120px;
+    transform-style: preserve-3d;
+    transition: all 300ms ease-in-out;
+    border: none;
+
+    &__face{
+        position: absolute;
+        inset: 0;
+        height:100%;
+        width: 100%;
+        backface-visibility: hidden;
+
+        &--back{
+            transform: rotateY(180deg);
+            z-index: 2;
+            
+        }
+        
+    }
+   
+
+}
+.is-flipped{
+    transform: rotateY(180deg);
+    z-index: -1;
 }
