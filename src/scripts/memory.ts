@@ -6,7 +6,7 @@ import { renderCardsImgsToHTML } from "./templates";
 let topStack:string = 'card-stack';
 let bottomStack:string = 'card-stack-mirror';
 let gameHasBegun:boolean = false;
-
+let currentPlayer:string | undefined;
 
 export function checkGameStatus(){
     if(gameHasBegun){
@@ -24,9 +24,9 @@ export function getSettingsFromLocaStorage(){
     if(storageData){
         let settings = JSON.parse(storageData) as SelectionInfos ;
         console.log(settings.theme);
-        toggleTableSize(settings)   
+        currentPlayer = settings.player;
+        toggleTableSize(settings);   
     }
-    
 }
 
 function toggleTableSize(settings:SelectionInfos){
@@ -44,15 +44,12 @@ function toggleTableSize(settings:SelectionInfos){
             cardStack?.classList.add('Count-16');
             cardtable?.classList.add('--size-16');
             cardCounter = 16;
-            randomPositioning(cardCounter)
-
-            //setTimeout(()=>{renderCardsBackground(cardCounter)},500);
+            randomPositioning(cardCounter);
         }
         if(tableSize?.includes('24')){
             cardStack?.classList.add('Count-24');
             cardtable?.classList.add('--size-24')
             cardCounter = 24;
-            //setTimeout(()=>{renderCardsBackground(cardCounter)},500);
             randomPositioning(cardCounter)
         }
         if(tableSize?.includes('36')){
@@ -60,9 +57,6 @@ function toggleTableSize(settings:SelectionInfos){
             cardtable?.classList.add('--size-36');
             cardCounter = 36;
             randomPositioning(cardCounter)
-            //renderCards(36);
-            //setTimeout(()=>{renderCardsBackground(36)},500);
-            //setTimeout(()=>{renderCardsImg(36)},500);
             
         }
         else{
@@ -115,7 +109,10 @@ function renderCardsImg(cardCounter:number[], HTML_Id: string ){
             cardStack.innerHTML += renderCardsImgsToHTML(cardIndex, array);
         }
     }
-    return gameHasBegun = true;  
+    // Hier startpunkt des games 
+    checkCurrentPlayerColor()
+    return gameHasBegun = true;
+      
 }
 
 
@@ -144,11 +141,11 @@ function toggleCardImg(cardElement: HTMLElement){
         cardElement.classList.add('is-flipped');
         if(!card1){
             card1 = cardElement;
-            console.log('card1: ',card1);
+            //console.log('card1: ',card1);
             return
         }else{
             card2 =cardElement
-            console.log('card2: ',card2)
+            //console.log('card2: ',card2)
             matchChecking();
             //return
         }
@@ -157,18 +154,71 @@ function toggleCardImg(cardElement: HTMLElement){
 
 function matchChecking(){
     const isMatch = card1?.getAttribute('data-index')===card2?.getAttribute('data-index');
-
     if(isMatch){
         console.log('match zwei identische Karten')
         card1 = null;
         card2 = null;
+        //checkCurrentPlayer();
+        getAPoint();
+        setTimeout(()=>{
+            switchPlayer();
+        },500)
+
     }else{
         console.log('kein Match Karten wieder Umdrehen');
+        //checkCurrentPlayer()
+        
         setTimeout(()=>{
             card1?.classList.remove('is-flipped')
             card1 = null;
             card2?.classList.remove('is-flipped');
             card2 = null;
+            switchPlayer();
         },1000)
     }
+}
+
+
+function switchPlayer(){
+    if(currentPlayer === 'Blue'){
+        currentPlayer = 'Orange'
+        checkCurrentPlayerColor();
+    }else{
+        currentPlayer = 'Blue'
+        checkCurrentPlayerColor();
+    }
+}
+
+function checkCurrentPlayerColor(){
+    let currentPlayerColor = document.getElementById('playerColor') as HTMLImageElement;
+    if(currentPlayerColor){
+        
+        if(currentPlayer === 'Blue'){
+            currentPlayerColor.src = '/img/memory-header/blue-label.svg';
+        }else{
+            currentPlayerColor.src = '/img/memory-header/orange-label.svg'
+        }
+        //return currentPlayer;
+    }
+
+}
+
+function getAPoint(){
+    let blue = document.getElementById('blue-score') as HTMLElement;
+    let orange = document.getElementById('orange-score') as HTMLElement;
+    let blueScore:number = 0;
+    let orangeScore: number = 0;
+    if(blue && orange){
+        if(currentPlayer=== 'Blue'){
+            blueScore = blueScore +1;
+            console.log(blueScore);
+            blue.innerText = blueScore.toString();
+        }else{
+            orangeScore = orangeScore + 1;
+            console.log(orangeScore);
+            orange.innerText = orangeScore.toString();
+        }
+    }    
+    
+
 }

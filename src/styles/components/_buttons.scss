@@ -1,0 +1,29 @@
+
+@use '../abstract/mixin' as mixin;
+@use '../abstract/variables' as vars;
+
+// mixin
+@mixin exitBtn-code{
+    width: 207px;
+    height: 100%;
+    background-color: #415652;
+    padding: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #4DD5BC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    img{
+        height: 25.75px;
+        width: 25.75px;
+    }
+    h5{
+        font-family: vars.$redRose;
+        font-size: 24px;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+} 

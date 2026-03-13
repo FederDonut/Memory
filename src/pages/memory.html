@@ -7,23 +7,25 @@
 </head>
 <body>
 
+    <section class="exit-overlay-wrapper"></section>
+
     <section class="game-overview">
         <section class="info-wrapper">
             <section class="left-wrapper">
                 <section class="score">
                     <section class="player">
                         <img src="/img/memory-header/blue-label.svg" alt="player-lable">
-                        <h5>Blue 0</h5>
+                        <h5 class="blue">Blue <span id="blue-score">0</span></h5>
                     </section>
                     <section class="player">
                         <img src="/img/memory-header/orange-label.svg" alt="player-lable">
-                        <h5>Orange 6</h5>
+                        <h5 class="orange">Orange <span id="orange-score">0</span></h5>
                     </section>
                 </section>
                 <section class="current-player-wrapper">
                     <section class="current-player">
                         <h3>Current player:</h3>
-                        <img src="/img/memory-header/orange-label.svg" alt="curren-player-label">
+                        <img id="playerColor" src="/img/memory-header/orange-label.svg" alt="curren-player-label">
                     </section>
                 </section>
             </section>
@@ -33,6 +35,9 @@
                 <h5>Exit game</h5>
             </button>
         </section>
+
+
+
         <section id="card-table" class="card-table">
             <section id="card-wrapper" class="card-position">
                 <section id="card-stack" class="card-stack"></section>

@@ -70,3 +70,10 @@
     }
 }
 
+// Button animation
+// exitBtn Code
+@mixin slideDown{
+    transform: translateY(1px);
+    transition: transform 0.3s ease;
+}
+
