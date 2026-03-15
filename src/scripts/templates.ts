@@ -13,6 +13,18 @@ export function renderCardsImgsToHTML(i:number, codeViebeImgs:string[]){
     `
 }
 
-
+export function renderExitOverlayToHTML(){
+    return`
+         <section id="overlay-content" class="overlay-content">
+            <section class="overlay-content_inner">
+                <h3>Are you sure you want to quit<br><span>the game ?</span></h3>
+                <section class="overlay-content_inner--btn-wrapper">
+                    <button><span>Back to game</span></button>
+                    <button id="exit-game"><span>Exit game</span></button>
+                </section>
+            </section>
+        </section>
+    `
+}
 
 

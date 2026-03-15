@@ -1,6 +1,7 @@
 import { codeViebeImgs , storeBtnIds } from "./db";
+import { goToSettings } from "./router";
 import { SelectionInfos } from "./settings";
-import { renderCardsImgsToHTML } from "./templates";
+import { renderCardsImgsToHTML, renderExitOverlayToHTML } from "./templates";
 
 
 let topStack:string = 'card-stack';
@@ -198,7 +199,6 @@ function checkCurrentPlayerColor(){
         }else{
             currentPlayerColor.src = '/img/memory-header/orange-label.svg'
         }
-        //return currentPlayer;
     }
 
 }
@@ -219,6 +219,32 @@ function getAPoint(){
             orange.innerText = orangeScore.toString();
         }
     }    
-    
+}
+
+export function toggleOverlay(){
+    let overlay = document.getElementById('exit-overlay') as HTMLElement;
+    if(overlay){
+        overlay.classList.toggle('d-none');
+
+    }
 
 }
+
+export function preventBubbling (event:MouseEvent){
+    event.stopPropagation();   
+}
+
+export function renderOverlay(){
+    let overlay = document.getElementById('exit-overlay') as HTMLElement;
+    if(overlay){
+        overlay.innerHTML = '';
+        overlay.innerHTML = renderExitOverlayToHTML();
+    }
+
+}
+
+export function backToSettings(){
+    goToSettings();
+    localStorage.removeItem('settings');
+    toggleOverlay();
+} 

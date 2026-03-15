@@ -1,0 +1,54 @@
+@use '../abstract/mixin' as mixin;
+@use '../abstract/variables' as vars;
+@use '../components/buttons' as btn;
+
+.d-none{
+    display: none !important;
+}
+
+.exit-overlay-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100dvw;
+    background-color: #24252585;
+    z-index: 10;
+    @include mixin.flex-center;
+
+    .overlay-content{
+        min-height: 270px;
+        min-width: 539px;
+        background-color: #FFFFFF;
+        opacity: 1;
+        @include mixin.flex-center;
+        
+        &_inner{
+            height: 190px;
+            width: 459px;
+
+            &--btn-wrapper{
+               
+               display: flex;
+               justify-content: center;
+               gap: 24px;
+            }
+        }
+        
+        
+    }
+    
+    h3{
+        font-size: 32px;
+        font-family: vars.$redRose;
+        display: flex;
+        flex-direction: column;
+        span{
+            width: 100%;
+            text-align: center;
+        }
+    }
+    button{
+        @include btn.overlay-button;
+    }
+}

@@ -26,4 +26,12 @@
         font-weight: 700;
         color: #FFFFFF;
     }
-} 
+}
+
+//Overlay Button Theme-code
+
+@mixin overlay-button{
+    height: 57px;
+    max-width: 182px;
+    padding: 0 24px;
+}
