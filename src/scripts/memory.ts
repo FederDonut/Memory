@@ -1,4 +1,4 @@
-import { codeViebeImgs , storeBtnIds } from "./db";
+import { codeViebeImgs , foodThemeImgs, storeBtnIds } from "./db";
 import { goToSettings } from "./router";
 import { SelectionInfos } from "./settings";
 import { renderCardsImgsToHTML, renderExitOverlayToHTML } from "./templates";
@@ -8,6 +8,7 @@ let topStack:string = 'card-stack';
 let bottomStack:string = 'card-stack-mirror';
 let gameHasBegun:boolean = false;
 let currentPlayer:string | undefined;
+let cardImgs:string | undefined;
 
 export function checkGameStatus(){
     if(gameHasBegun){
@@ -34,30 +35,34 @@ function toggleTableSize(settings:SelectionInfos){
     let cardtable = document.getElementById('card-table')as HTMLElement;
     let cardStack = document.getElementById('card-wrapper') as HTMLElement;
     let tableSize: string | undefined
-    let cardTheme: string | undefined
     let cardCounter:number 
 
     if(settings !== undefined ){
         tableSize = settings.board
-        cardTheme = settings.theme
-        console.log('Kartenanzahl:',tableSize ,'Theme:', cardTheme)
+        cardImgs = settings.theme
+        console.log('Kartenanzahl:',tableSize ,'Theme:', cardImgs)
+        
         if(tableSize?.includes('16')){
             cardStack?.classList.add('Count-16');
             cardtable?.classList.add('--size-16');
             cardCounter = 16;
             randomPositioning(cardCounter);
+            
+           
         }
         if(tableSize?.includes('24')){
             cardStack?.classList.add('Count-24');
             cardtable?.classList.add('--size-24')
             cardCounter = 24;
-            randomPositioning(cardCounter)
+            randomPositioning(cardCounter);
+            
         }
         if(tableSize?.includes('36')){
             cardStack?.classList.add('Count-36');
             cardtable?.classList.add('--size-36');
             cardCounter = 36;
-            randomPositioning(cardCounter)
+            randomPositioning(cardCounter);
+            
             
         }
         else{
@@ -99,15 +104,25 @@ function randomPositioning(index:number){
 
 
 
+
 // Funktion zum laden und rendern der Bilder 
 function renderCardsImg(cardCounter:number[], HTML_Id: string ){
     let cardStack = document.getElementById(HTML_Id) as HTMLElement;
-    let array:string[] = codeViebeImgs;
+    let array:string[];
+    let srcPath:string;
+    if(cardImgs ==='Food theme'){
+        array = foodThemeImgs;
+        srcPath = 'food-theme'
+    }else{
+        array = codeViebeImgs;
+        srcPath = 'code-vibes-theme'
+    }
+    console.log(array)
     if(cardStack){
         cardStack.innerHTML = "";
         for(let i =0; i< cardCounter.length; i++){
             let cardIndex:number = cardCounter[i]
-            cardStack.innerHTML += renderCardsImgsToHTML(cardIndex, array);
+            cardStack.innerHTML += renderCardsImgsToHTML(cardIndex, array, srcPath);
         }
     }
     // Hier startpunkt des games 

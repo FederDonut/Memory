@@ -9,7 +9,7 @@ import { settingsBase } from "./db";
 const htmlIds = {
     "theme": {
         "code": "/img/settings/Theme Visual-code.svg",
-        "gaming": "/img/settings/Theme Visual-game.svg"
+        "food": "/img/settings/Theme Visual-food.svg"
     },
         
 };
@@ -32,17 +32,17 @@ function checkInputStatus(event:any){
     if(checkbox.checked ){
         renderThemeImg(checkbox)
        
-    }else{
-        
     }
 }
 
 function renderThemeImg(checkbox:HTMLInputElement){
     let themeImg = document.getElementById('theme-img') as HTMLImageElement;
     if(checkbox.id === 'code'){
+        console.log('code')
         themeImg.src = htmlIds.theme.code
-    }if(checkbox.id ==='game'){
-        themeImg.src = htmlIds.theme.gaming
+    }if(checkbox.id ==='food'){
+        console.log('food')
+        themeImg.src = htmlIds.theme.food
     }
 }
 

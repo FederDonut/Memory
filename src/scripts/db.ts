@@ -22,6 +22,29 @@ export const codeViebeImgs:string[] = [
     'Vue.svg'
 ];
 
+export const foodThemeImgs:string[] = [
+    'Biskuit.svg',
+    'Chips.svg',
+    'Hot-Dog.svg',
+    'Pretzel.svg',
+    'Sushi.svg',
+    'Burger.svg',
+    'Chocolate.svg',
+    'Ice.svg',
+    'Pudding.svg',
+    'Takko.svg',
+    'Cake.svg',
+    'Donut.svg',
+    'Muffin.svg',
+    'Salat.svg',
+    'Wrapp.svg',
+    'ChickenWings.svg',
+    'Pizza.svg',
+    'Sandwitch.svg'
+
+]
+
 export const storeBtnIds:number[][] = [
 
 ]
+

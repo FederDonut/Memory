@@ -1,12 +1,12 @@
 
 
 
-export function renderCardsImgsToHTML(i:number, codeViebeImgs:string[]){
+export function renderCardsImgsToHTML(i:number, array:string[], srcPath:string){
 
     return `
         <button id="single-card${i}" class="card" data-index="${i}" >
-            <img id="card${i}" class="card__face card__face--back" src="/img/cards/code-vibes-theme/${codeViebeImgs[i]}" alt="memory-card">
-            <img class="card__face " src="/img/cards/code-vibes-theme/code-background.svg" alt="background-img">
+            <img id="card${i}" class="card__face card__face--back" src="/img/cards/${srcPath}/${array[i]}" alt="memory-card">
+            <img class="card__face " src="/img/cards/${srcPath}/background.svg" alt="background-img">
         </button>
         
 
