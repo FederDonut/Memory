@@ -14,7 +14,8 @@ const htmlIds = {
         
 };
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Hier weiter arbeiten bzgl der stettings anzeige 
 export function observeSetting(){ 
     const allInputs = document.querySelectorAll('.menu-point input[type="radio"]');
     allInputs.forEach(input =>{
@@ -28,24 +29,42 @@ export function observeSetting(){
 
 function checkInputStatus(event:any){
     storeUserDecissons();
-    const checkbox = event.target;
+    const checkbox = event.target as HTMLInputElement;
     if(checkbox.checked ){
+        //Test 
+        console.log('Input ID:', checkbox.id, 'Input Name:', checkbox.name)//<-- Zugriffs punkt 
+        let Test = checkbox.parentElement as HTMLElement;
+        let pTag = Test.querySelector('p');
+        console.log(pTag?.innerText);
+        console.log(checkbox.parentElement)
         renderThemeImg(checkbox)
+        monitorUserDecision(checkbox)
        
     }
+}
+
+function monitorUserDecision(checkbox:HTMLInputElement){
+    let themeDisplay = document.getElementById('theme-name') as HTMLElement;
+    let player = document.getElementById('player-color') as HTMLElement;
+    let board = document.getElementById('board-size') as HTMLElement;
+    if(checkbox.name === 'game'){
+        
+    }
+
+
 }
 
 function renderThemeImg(checkbox:HTMLInputElement){
     let themeImg = document.getElementById('theme-img') as HTMLImageElement;
     if(checkbox.id === 'code'){
-        console.log('code')
+        console.log('code', checkbox.name)
         themeImg.src = htmlIds.theme.code
     }if(checkbox.id ==='food'){
         console.log('food')
         themeImg.src = htmlIds.theme.food
     }
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 // Interface evtl outsourcen 
 export interface SelectionInfos{
     theme:string |undefined,
@@ -88,17 +107,18 @@ export function unlockStartGameBtn(unlock:boolean){
 }
 
 
-export function renderDecisionSummary(selection:SelectionInfos){
-    let themeDisplay = document.getElementById('theme-name') as HTMLElement;
-    let player = document.getElementById('player-color') as HTMLElement;
-    let board = document.getElementById('board-size') as HTMLElement;
 
-   // Das selection.theme ?? '' sorgt dafür, dass bei undefined ein leerer String genutzt wird
-    themeDisplay.innerText = selection.theme ?? '';    
-    player.innerText = selection.player ?? '';
-    board.innerText = selection.board ?? '';
-
-}
+//export function renderDecisionSummary(selection:SelectionInfos){
+//    let themeDisplay = document.getElementById('theme-name') as HTMLElement;
+//    let player = document.getElementById('player-color') as HTMLElement;
+//    let board = document.getElementById('board-size') as HTMLElement;
+//
+//   // Das selection.theme ?? '' sorgt dafür, dass bei undefined ein leerer String genutzt wird
+//    themeDisplay.innerText = selection.theme ?? '';    
+//    player.innerText = selection.player ?? '';
+//    board.innerText = selection.board ?? '';
+//
+//}
 
 
 

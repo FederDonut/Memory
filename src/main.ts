@@ -69,6 +69,24 @@ function overlayController(){
 
 }
 
+//function settingController(){
+//    const gameTheme = document.querySelectorAll('input[name="game"]');
+//    const choosenPlayer =  document.querySelectorAll('input[name="player"]');
+//    const boardSize = document.querySelectorAll('input[name="board"]');
+//    
+//    gameTheme.forEach(input =>{
+//        input.addEventListener('change',(event)=>{
+//            const target = event.target as HTMLInputElement
+//            if(target.name === 'game'){
+//                console.log(true);
+//            }    
+//            
+//            
+//        })
+//    })
+//
+//}
+
 
 //SCSS
 import './styles/main.scss';
