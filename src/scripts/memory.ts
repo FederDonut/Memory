@@ -117,7 +117,6 @@ function renderCardsImg(cardCounter:number[], HTML_Id: string ){
         array = codeViebeImgs;
         srcPath = 'code-vibes-theme'
     }
-    console.log(array)
     if(cardStack){
         cardStack.innerHTML = "";
         for(let i =0; i< cardCounter.length; i++){

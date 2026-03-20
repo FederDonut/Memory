@@ -1,21 +1,21 @@
 import { settingsBase } from "./db";
 
-//const settingOptions:string[] = [];
 
-//let unlock:boolean = false;
 
 
 //
 const htmlIds = {
     "theme": {
         "code": "/img/settings/Theme Visual-code.svg",
-        "food": "/img/settings/Theme Visual-food.svg"
+        "food": "/img/settings/Theme Visual-food.svg",
     },
+    "buttonImg":{
+        "enabled": "/img/settings/smart_display.svg",
+        "disabled": "/img/settings/smart_display_disabled.svg",
+    }
         
 };
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-//Hier weiter arbeiten bzgl der stettings anzeige 
 export function observeSetting(){ 
     const allInputs = document.querySelectorAll('.menu-point input[type="radio"]');
     allInputs.forEach(input =>{
@@ -27,28 +27,32 @@ export function observeSetting(){
 };
 
 
-function checkInputStatus(event:any){
-    storeUserDecissons();
+function checkInputStatus(event:any){ // Test Funktionen 
     const checkbox = event.target as HTMLInputElement;
     if(checkbox.checked ){
-        //Test 
-        console.log('Input ID:', checkbox.id, 'Input Name:', checkbox.name)//<-- Zugriffs punkt 
         let Test = checkbox.parentElement as HTMLElement;
-        let pTag = Test.querySelector('p');
-        console.log(pTag?.innerText);
-        console.log(checkbox.parentElement)
+        let target_pTag = Test.querySelector('p') as HTMLElement;
         renderThemeImg(checkbox)
-        monitorUserDecision(checkbox)
+        monitorUserDecision(checkbox, target_pTag)
        
     }
+    storeUserDecissons();
 }
 
-function monitorUserDecision(checkbox:HTMLInputElement){
+
+
+function monitorUserDecision(checkbox:HTMLInputElement, target_pTag:HTMLElement){
     let themeDisplay = document.getElementById('theme-name') as HTMLElement;
     let player = document.getElementById('player-color') as HTMLElement;
     let board = document.getElementById('board-size') as HTMLElement;
     if(checkbox.name === 'game'){
-        
+        themeDisplay.innerText = target_pTag?.innerText;
+    }
+    if(checkbox.name === 'player'){
+        player.innerText = target_pTag?.innerText;
+    }
+    if( checkbox.name === 'board'){
+        board.innerText = target_pTag?.innerText
     }
 
 
@@ -57,14 +61,12 @@ function monitorUserDecision(checkbox:HTMLInputElement){
 function renderThemeImg(checkbox:HTMLInputElement){
     let themeImg = document.getElementById('theme-img') as HTMLImageElement;
     if(checkbox.id === 'code'){
-        console.log('code', checkbox.name)
         themeImg.src = htmlIds.theme.code
     }if(checkbox.id ==='food'){
-        console.log('food')
         themeImg.src = htmlIds.theme.food
     }
 }
-////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Interface evtl outsourcen 
 export interface SelectionInfos{
     theme:string |undefined,
@@ -87,16 +89,21 @@ function storeUserDecissons() {
 }
 
 function inputValidation(selection:SelectionInfos){
+    let readyPlayer:boolean;
     if(selection.theme !== undefined && selection.player != undefined && selection.board !== undefined){
         settingsBase.push(selection);
         localStorage.setItem('settings', JSON.stringify(selection))
+        readyPlayer = true;
         console.log(settingsBase);
     }else{
         console.log('Es fehlen noch angaben');
+        readyPlayer = false;
     }
+    toggleStartButton(readyPlayer)
 }
 
 export function unlockStartGameBtn(unlock:boolean){
+   
     if(settingsBase.length !== 0){
         unlock = true
         return unlock 
@@ -106,19 +113,23 @@ export function unlockStartGameBtn(unlock:boolean){
    }
 }
 
-
-
-//export function renderDecisionSummary(selection:SelectionInfos){
-//    let themeDisplay = document.getElementById('theme-name') as HTMLElement;
-//    let player = document.getElementById('player-color') as HTMLElement;
-//    let board = document.getElementById('board-size') as HTMLElement;
-//
-//   // Das selection.theme ?? '' sorgt dafür, dass bei undefined ein leerer String genutzt wird
-//    themeDisplay.innerText = selection.theme ?? '';    
-//    player.innerText = selection.player ?? '';
-//    board.innerText = selection.board ?? '';
-//
-//}
+export function toggleStartButton(readyPlayer:boolean){
+    let btn = document.getElementById('startBtn') as HTMLButtonElement;
+    let btnImg = document.getElementById('startBtnImg') as HTMLImageElement;
+    console.log(true)
+    
+    if(readyPlayer){
+        btnImg.src = htmlIds.buttonImg.enabled
+        btn?.classList.add('StartButton--enabled');
+        btn?.classList.remove('StartButton--disabled');
+    }else{
+        btnImg.src = htmlIds.buttonImg.disabled
+         btn?.classList.remove('StartButton--enabled');
+        btn?.classList.add('StartButton--disabled');
+    }
+    
+}
+ 
 
 
 

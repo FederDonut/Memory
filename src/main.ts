@@ -2,7 +2,7 @@
 //document.getElementById('h1_test')!.innerText = "das ist der zweite Test";
 
 import { goToSettings, goToTheGame } from './scripts/router';
-import { observeSetting, unlockStartGameBtn, renderDecisionSummary } from './scripts/settings';
+import { observeSetting, unlockStartGameBtn } from './scripts/settings';
 import { getSettingsFromLocaStorage, flipCard, toggleOverlay, preventBubbling, renderOverlay, backToSettings } from './scripts/memory';
 
 //import { renderCardsToHTML } from './scripts/templates';
@@ -16,7 +16,6 @@ function init(){
     overlayController()
     //setTimeout(()=>{test()},5000)
     observeSetting();
-    //renderDecisionSummary()
     getSettingsFromLocaStorage();
     //setInterval(()=>{checkGameStatus()},1000);
     
@@ -69,23 +68,7 @@ function overlayController(){
 
 }
 
-//function settingController(){
-//    const gameTheme = document.querySelectorAll('input[name="game"]');
-//    const choosenPlayer =  document.querySelectorAll('input[name="player"]');
-//    const boardSize = document.querySelectorAll('input[name="board"]');
-//    
-//    gameTheme.forEach(input =>{
-//        input.addEventListener('change',(event)=>{
-//            const target = event.target as HTMLInputElement
-//            if(target.name === 'game'){
-//                console.log(true);
-//            }    
-//            
-//            
-//        })
-//    })
-//
-//}
+
 
 
 //SCSS

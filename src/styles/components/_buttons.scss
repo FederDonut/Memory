@@ -35,3 +35,47 @@
     max-width: 182px;
     padding: 0 24px;
 }
+
+.StartButton{
+    height: 53px;
+    width: 126px;
+    font-size: 20px;
+    @include mixin.flex-center;
+    flex-direction: row;
+    gap: 8px;
+    img{
+        height: 16px;
+        width: 20px;
+        
+    }
+    p{
+        font-family: vars.$redRose;
+        font-size: 20px;
+
+    }
+}
+
+.StartButton--enabled{
+    background-color: #F0EA6E;
+    //font-family: $redRose;
+    border: 0;
+    p{
+        color: #303131;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.StartButton--disabled{
+    background-color: #DBDBD6;
+    //font-family: $redRose;
+    border: 0;
+    p{
+        color: #A3A1A1;
+    }
+    &:hover{
+        cursor: not-allowed;
+    }
+}
+
