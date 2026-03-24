@@ -1,7 +1,7 @@
 import { codeViebeImgs , foodThemeImgs, storeBtnIds } from "./db";
 import { goToSettings } from "./router";
 import { SelectionInfos } from "./settings";
-import { renderCardsImgsToHTML, renderExitOverlayToHTML } from "./templates";
+import { renderCardsImgsToHTML, renderCodeThemeNavbar, renderExitOverlayToHTML, renderFoodThemeNavbar } from "./templates";
 
 
 let topStack:string = 'card-stack';
@@ -27,7 +27,8 @@ export function getSettingsFromLocaStorage(){
         let settings = JSON.parse(storageData) as SelectionInfos ;
         console.log(settings.theme);
         currentPlayer = settings.player;
-        toggleTableSize(settings);   
+        toggleTableSize(settings);
+        renderMemoryNavbar(settings.theme);   
     }
 }
 
@@ -130,6 +131,19 @@ function renderCardsImg(cardCounter:number[], HTML_Id: string ){
       
 }
 
+function renderMemoryNavbar(theme:string|undefined){
+    let navBar = document.getElementById('navBar') as HTMLElement;
+    if(navBar){
+        console.log(theme)
+        if(theme ==='Code vibes theme'){
+            navBar.innerHTML = '';
+            navBar.innerHTML += renderCodeThemeNavbar(); 
+        }else{
+            navBar.innerHTML ='';
+            navBar.innerHTML += renderFoodThemeNavbar();
+        }
+    }
+}
 
 export function flipCard(){
     const cardWrapper = document.getElementById('card-stack') as HTMLButtonElement;
@@ -204,14 +218,15 @@ function switchPlayer(){
     }
 }
 
+//Muss noch entsprächend dem Theme angepasst werden 
 function checkCurrentPlayerColor(){
     let currentPlayerColor = document.getElementById('playerColor') as HTMLImageElement;
     if(currentPlayerColor){
         
         if(currentPlayer === 'Blue'){
-            currentPlayerColor.src = '/img/memory-header/blue-label.svg';
+            currentPlayerColor.src = '/img/memory-header/code/blue-label.svg';
         }else{
-            currentPlayerColor.src = '/img/memory-header/orange-label.svg'
+            currentPlayerColor.src = '/img/memory-header/code/orange-label.svg'
         }
     }
 
@@ -256,6 +271,8 @@ export function renderOverlay(){
     }
 
 }
+
+
 
 export function backToSettings(){
     goToSettings();

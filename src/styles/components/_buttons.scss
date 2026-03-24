@@ -3,7 +3,7 @@
 @use '../abstract/variables' as vars;
 
 // mixin
-@mixin exitBtn-code{
+.exitBtn--code{
     width: 207px;
     height: 100%;
     background-color: #415652;
@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-
+    transition: transform 0.3s ease;
     img{
         height: 25.75px;
         width: 25.75px;
@@ -26,6 +26,24 @@
         font-weight: 700;
         color: #FFFFFF;
     }
+    &:hover{
+        //transition-duration: 0.05s;
+        cursor: pointer;
+        border-width: 2px;
+        box-shadow: 1px 2px 2px 0px #4DD5BC;
+        @include mixin.slideDown;
+        
+        
+        //transform: translateY(1px);
+    }
+}
+
+.exitBtn--food{
+    width: 173px;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #F3832D;
+    //@include mixin.flex-center;
 }
 
 //Overlay Button Theme-code

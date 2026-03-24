@@ -1,0 +1,184 @@
+
+@use '../abstract/mixin' as mixin;
+@use '../abstract/variables' as vars;
+@use '../components/buttons' as btn;
+@use '../components/overlays' as overlay;
+
+
+.info-wrapper--food{
+    height: 102px;
+    background-color: #F0E5D9;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+     .left-wrapper--food{
+            height: 100%;
+            width: 687px;
+            display: flex;
+            justify-content: space-between;
+            
+            .score--food{
+                height: 100%;
+                width: 292px;
+                background-color: #FFFFFF;
+                @include mixin.flex-center;
+                flex-direction: row;
+                gap: 20px;
+
+                .player{
+                    height: 28px;
+                    width: auto;
+                    //border: 1px solid blue;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    img{
+                        height: 20px;
+                        width: 24px;
+                    }
+                    h5{
+                        font-size: 24px;
+                        font-family: vars.$redRose;
+                        
+                    }
+                    //!! outsourcing //////
+                    .orange{
+                        color: #F58E39;
+                    }
+                    .blue{
+                        color: #2BB1FF;
+                    }
+                }
+
+            }
+            .current-player-wrapper{
+                height: 100%;
+                width: auto;
+                display: flex;
+                align-items: flex-end;
+
+
+                .current-player{
+                    height: 32px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    
+                    h3{
+                        font-family: vars.$redRose;
+                        font-size: 26px;
+                        font-weight: 400;
+                        margin: 0;
+                        color: #FFFFFF;
+                    }
+                }
+                
+
+               
+
+            }
+        }
+
+}
+
+
+
+.info-wrapper--code{
+        height: 62px;
+        width: 100%;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .left-wrapper{
+            height: 100%;
+            width: 687px;
+            display: flex;
+            justify-content: space-between;
+            
+            .score{
+                height: 100%;
+                width: 292px;
+                background-color: #415652;
+                @include mixin.flex-center;
+                flex-direction: row;
+                gap: 20px;
+
+                .player{
+                    height: 28px;
+                    width: auto;
+                    //border: 1px solid blue;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    img{
+                        height: 20px;
+                        width: 24px;
+                    }
+                    h5{
+                        font-size: 24px;
+                        font-family: vars.$redRose;
+                        
+                    }
+                    //!! outsourcing //////
+                    .orange{
+                        color: #F58E39;
+                    }
+                    .blue{
+                        color: #2BB1FF;
+                    }
+                }
+
+            }
+            .current-player-wrapper{
+                height: 100%;
+                width: auto;
+                display: flex;
+                align-items: flex-end;
+
+
+                .current-player{
+                    height: 32px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    
+                    h3{
+                        font-family: vars.$redRose;
+                        font-size: 26px;
+                        font-weight: 400;
+                        margin: 0;
+                        color: #FFFFFF;
+                    }
+                }
+                
+
+               
+
+            }
+        }
+        //.exitBtn{
+        //    //@include btn.exitBtn-code;
+        //    transition: transform 0.3s ease;
+        //    // implementierung einer Funktion 
+        //    &:hover{
+        //        //transition-duration: 0.05s;
+        //        cursor: pointer;
+        //        border-width: 2px;
+        //        box-shadow: 1px 2px 2px 0px #4DD5BC;
+        //        @include mixin.slideDown;
+        //        
+        //       
+        //        //transform: translateY(1px);
+        //    }
+        //    
+        //}
+    }
