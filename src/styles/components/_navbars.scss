@@ -14,35 +14,41 @@
     flex-direction: row;
     justify-content: space-between;
 
-     .left-wrapper--food{
+     .position-wrapper--food{
             height: 100%;
-            width: 687px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
             
             .score--food{
-                height: 100%;
-                width: 292px;
+                height: 54px;
+                width: 159px;
+                border-radius: 10px;
                 background-color: #FFFFFF;
                 @include mixin.flex-center;
                 flex-direction: row;
-                gap: 20px;
+                justify-content: space-evenly;
+                gap: 4px;
 
-                .player{
-                    height: 28px;
-                    width: auto;
+                .player--food{
+                    height: 38px;
+                    min-width: 44px;
                     //border: 1px solid blue;
                     display: flex;
                     align-items: center;
                     gap: 4px;
                     img{
-                        height: 20px;
-                        width: 24px;
+                        height: 25px;
+                        width: 20px;
                     }
                     h5{
-                        font-size: 24px;
-                        font-family: vars.$redRose;
-                        
+                        font-family: vars.$deliusUnicase-Bold !important;
+                        font-size: 30px;
+                        line-height: 100%;
+                        letter-spacing: 0%;
                     }
                     //!! outsourcing //////
                     .orange{
@@ -54,15 +60,15 @@
                 }
 
             }
-            .current-player-wrapper{
+            .current-player-wrapper--food{
                 height: 100%;
                 width: auto;
                 display: flex;
-                align-items: flex-end;
+                align-items: center;
 
 
-                .current-player{
-                    height: 32px;
+                .current-player--food{
+                    height: 46px;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
@@ -70,11 +76,14 @@
                     gap: 8px;
                     
                     h3{
-                        font-family: vars.$redRose;
+                        font-family: vars.$deliusUnicas;
                         font-size: 26px;
                         font-weight: 400;
                         margin: 0;
-                        color: #FFFFFF;
+                        color: #A45212;
+                    }
+                    img{
+                        border-radius: 8px;
                     }
                 }
                 

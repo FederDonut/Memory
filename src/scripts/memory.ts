@@ -9,6 +9,7 @@ let bottomStack:string = 'card-stack-mirror';
 let gameHasBegun:boolean = false;
 let currentPlayer:string | undefined;
 let cardImgs:string | undefined;
+let cardThemes: string|undefined;
 
 export function checkGameStatus(){
     if(gameHasBegun){
@@ -100,7 +101,7 @@ function randomPositioning(index:number){
     
     renderCardsImg(cardStack, topStack);
     renderCardsImg(mirrorStack, bottomStack);
-    storeBtnIds.push(cardStack, mirrorStack); // evtl. nicht notwendig
+    //storeBtnIds.push(cardStack, mirrorStack); // evtl. nicht notwendig
 }
 
 
@@ -113,10 +114,12 @@ function renderCardsImg(cardCounter:number[], HTML_Id: string ){
     let srcPath:string;
     if(cardImgs ==='Food theme'){
         array = foodThemeImgs;
-        srcPath = 'food-theme'
+        srcPath = 'food-theme';
+        cardThemes = 'food';
     }else{
         array = codeViebeImgs;
-        srcPath = 'code-vibes-theme'
+        srcPath = 'code-vibes-theme';
+        cardThemes = 'code';
     }
     if(cardStack){
         cardStack.innerHTML = "";
@@ -221,14 +224,25 @@ function switchPlayer(){
 //Muss noch entsprächend dem Theme angepasst werden 
 function checkCurrentPlayerColor(){
     let currentPlayerColor = document.getElementById('playerColor') as HTMLImageElement;
-    if(currentPlayerColor){
-        
-        if(currentPlayer === 'Blue'){
-            currentPlayerColor.src = '/img/memory-header/code/blue-label.svg';
-        }else{
-            currentPlayerColor.src = '/img/memory-header/code/orange-label.svg'
+   
+    if(cardThemes === 'food'){
+        if(currentPlayerColor){
+            if(currentPlayer === 'Blue'){
+                currentPlayerColor.src = '/img/memory-header/food/activ_blue.svg';
+            }else{
+                currentPlayerColor.src = '/img/memory-header/food/activ_orange.svg'
+            }
+        }
+    }else{
+        if(currentPlayerColor){
+            if(currentPlayer === 'Blue'){
+                currentPlayerColor.src = '/img/memory-header/code/blue-label.svg';
+            }else{
+                currentPlayerColor.src = '/img/memory-header/code/orange-label.svg'
+            }
         }
     }
+    
 
 }
 
